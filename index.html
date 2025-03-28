@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="img/favicon.png" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
     <title>CLM Advisors</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/line-awesome.min.css" />
@@ -127,7 +127,11 @@
             <div class="content">
               <h2>About us</h2>
               <p>
-                CLM Advisors Ptv Ltd is a CPA-qualified, registered public practice firm dedicated to delivering expert financial and advisory services. Based in Parramatta, NSW, we specialize in empowering businesses and individuals with precise and innovative accounting solutions.
+                CLM Advisors Ptv Ltd is a CPA-qualified, registered public
+                practice firm dedicated to delivering expert financial and
+                advisory services. Based in Parramatta, NSW, we specialize in
+                empowering businesses and individuals with precise and
+                innovative accounting solutions.
               </p>
               <div class="row">
                 <div class="col">
@@ -436,7 +440,16 @@
           </div>
           <div class="card p-4" style="width: 100%; max-width: 500px">
             <h2 class="text-center mb-4">Connect with Us</h2>
-            <form id="contactForm">
+            <form
+              id="contactForm"
+              action="https://api.web3forms.com/submit"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="access_key"
+                value="f32c2135-5787-4d5d-bcc3-03ba91ec8f09"
+              />
               <div class="mb-3">
                 <label for="name" class="form-label" class="">Full Name</label>
                 <input
@@ -473,6 +486,12 @@
                 ></textarea>
               </div>
 
+              <div class="h-captcha" data-captcha="true"></div>
+              <span
+                id="captchaError"
+                style="color: red; font-size: 14px; display: none"
+              ></span>
+
               <button type="submit" class="button button2 w-100">
                 Send Message
               </button>
@@ -496,7 +515,10 @@
           <div class="col-md col-sm col-12">
             <ul>
               <li>
-                <a href=""><i class="la la-facebook"></i></a>
+                <a
+                  href="https://www.facebook.com/clmadvisors.sydney?mibextid=wwXIfr&rdid=U6yBPwCE5hgsp4g1&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F162jDYchmZ%2F%3Fmibextid%3DwwXIfr"
+                  ><i class="la la-facebook"></i
+                ></a>
               </li>
               <li>
                 <a href=""><i class="la la-twitter"></i></a>
@@ -516,13 +538,26 @@
             </ul>
           </div>
         </div>
-
-      
       </div>
     </footer>
 
+    <div class="elf-container">
+      <div
+        class="elfsight-app-188867ff-38f3-4f2f-82fb-132477470e50"
+        data-elfsight-app-lazy
+      ></div>
+    </div>
+
     <!-- end footer -->
 
+    <!-- web3form -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+
+    <!-- whatsapp widget -->
+    <script
+      src="https://static.elfsight.com/platform/platform.js"
+      async
+    ></script>
     <!-- script -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>

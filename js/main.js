@@ -110,25 +110,46 @@
 })();
 
 // contact form
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent form submission
+// document.getElementById('contactForm').addEventListener('submit', function(event) {
+//   event.preventDefault(); // Prevent form submission
 
-  // Get form values
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+//   // Get form values
+//   const name = document.getElementById('name').value;
+//   const email = document.getElementById('email').value;
+//   const message = document.getElementById('message').value;
 
-  // Simple validation (you can extend this)
-  if (name && email && message) {
-    // Simulate successful form submission
-    document.getElementById('responseMessage').innerHTML = 'Thank you for contacting us, ' + name + '! We will get back to you soon.';
-    document.getElementById('responseMessage').style.color = 'green';
+//   // Simple validation (you can extend this)
+//   if (name && email && message) {
+//     // Simulate successful form submission
+//     document.getElementById('responseMessage').innerHTML = 'Thank you for contacting us, ' + name + '! We will get back to you soon.';
+//     document.getElementById('responseMessage').style.color = 'green';
     
-    // Reset form fields
-    document.getElementById('contactForm').reset();
-  } else {
-    // Show error message
-    document.getElementById('responseMessage').innerHTML = 'Please fill out all fields.';
-    document.getElementById('responseMessage').style.color = 'red';
+//     // Reset form fields
+//     document.getElementById('contactForm').reset();
+//   } else {
+//     // Show error message
+//     document.getElementById('responseMessage').innerHTML = 'Please fill out all fields.';
+//     document.getElementById('responseMessage').style.color = 'red';
+//   }
+// });
+
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', function(e) {
+  const hCaptchaResponse = form.querySelector(
+    "textarea[name=h-captcha-response]"
+  );
+
+  const errorMessage = document.getElementById("captchaError");
+
+  if (!hCaptchaResponse || !hCaptchaResponse.value) {
+    e.preventDefault();
+    errorMessage.textContent =
+      "Hey, can you confirm you’re a real person? Thanks!";
+    errorMessage.style.display = "block";
+    return;
   }
+
+  // Hide error message if captcha is filled
+  errorMessage.style.display = "none";
 });

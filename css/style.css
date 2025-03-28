@@ -450,6 +450,15 @@ footer ul li i:hover {
   color: #036bdb;
 }
 
+.elf-container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
 /* ------------------------------
   responsive
 ---------------------------------*/
