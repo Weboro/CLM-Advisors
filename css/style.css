@@ -412,9 +412,6 @@ clients
   font-weight: 600;
 }
 
-/* ------------------------------
-  contact
----------------------------------*/
 .contact {
   padding-top: 100px;
   padding-bottom: 30px;
@@ -424,6 +421,41 @@ clients
 .contact h5 {
   margin-bottom: 15px;
 }
+/* ------------------------------
+  contact
+---------------------------------*/
+
+/* ------------------------------
+  logos and tax return
+---------------------------------*/
+
+.tax-return {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  padding: 80px 0;
+  margin-top: 40px;
+}
+
+.logo-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.logo-img {
+  background: white;
+  border-radius: 5px;
+  padding: 15px;
+  max-height: 150px;
+  width: 100%;
+  object-fit: contain;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* ------------------------------
+  contact
+---------------------------------*/
 
 /* ------------------------------
   footer
@@ -462,6 +494,21 @@ footer ul li i:hover {
 /* ------------------------------
   responsive
 ---------------------------------*/
+
+@media (max-width: 1200px) {
+  .testimonial .content-box {
+    height: 100vh;
+  }
+  .testimonial .content-image {
+    height: 100%;
+  }
+
+  .testimonial .content-image img {
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
 @media (max-width: 991px) {
   .navbar .button-navbar {
     display: none;
@@ -486,6 +533,10 @@ footer ul li i:hover {
   .testimonial .swiper {
     width: 100%;
     float: none;
+  }
+
+  .testimonial .content-box {
+    height: auto;
   }
 
   .testimonial .content {
@@ -525,7 +576,12 @@ footer ul li i:hover {
     margin-bottom: 20px;
     display: block;
   }
+
+  .tax-return {
+    padding: 40px 0;
+  }
 }
+
 @media (max-width: 575px) {
   .container {
     padding: 0 25px;
