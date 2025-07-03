@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <link rel="shortcut icon" href="img/favicon.ico" />
     <title>CLM Advisors</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -627,6 +627,59 @@
       </div>
     </footer>
 
+    <!-- modal popup -->
+
+    <div class="demo-controls">
+      <label>
+        <input type="checkbox" id="autoShow" checked hidden />
+        Show popup automatically on page load
+      </label>
+    </div>
+
+    <!-- Modal HTML -->
+    <div
+      id="noticeModal"
+      class="modal-overlay"
+      role="dialog"
+      aria-labelledby="modalTitle"
+      aria-describedby="modalDescription"
+    >
+      <div class="modal-content">
+        <button
+          class="close-button"
+          onclick="hideModal()"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+
+        <div class="modal-body">
+          <h2 id="modalTitle" class="modal-title">
+            🎉 Maximize Your Tax Refund!
+          </h2>
+          <p class="modal-subtitle">
+            Scan the QR below or click on Learn More to fill the form and our
+            team will get in touch with you.
+          </p>
+          <p id="modalDescription" class="modal-description">
+            <img
+               src="img/qr-code.jpeg"
+            />
+          </p>
+
+          <div class="modal-actions">
+            <a href="https://zfrmz.com.au/Mkr1SB3513n3Im3eQ8P1" class="modal-button primary"
+              >Learn More</a
+            >
+            <button class="modal-button secondary" onclick="hideModal()">
+              Maybe Later
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bottom whatsapp chat  -->
     <div class="elf-container">
       <div
         class="elfsight-app-188867ff-38f3-4f2f-82fb-132477470e50"
@@ -639,6 +692,82 @@
     <!-- web3form -->
     <script src="https://web3forms.com/client/script.js" async defer></script>
 
+    <!-- tax return popup modal -->
+    <script>
+      // Modal functionality
+      const modal = document.getElementById("noticeModal");
+      const autoShowCheckbox = document.getElementById("autoShow");
+
+      // Show modal function
+      function showModal() {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden"; // Prevent background scrolling
+
+        // Focus management for accessibility
+        const closeButton = modal.querySelector(".close-button");
+        closeButton.focus();
+      }
+
+      // Hide modal function
+      function hideModal() {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto"; // Restore scrolling
+      }
+
+      // Show custom modal with different content
+      function showCustomModal() {
+        // Update modal content
+        document.getElementById("modalTitle").textContent =
+          "🚀 New Feature Alert!";
+        document.querySelector(".modal-subtitle").textContent =
+          "Check out what's new";
+        document.getElementById("modalDescription").textContent =
+          "We've just launched an amazing new feature that will revolutionize your experience. Click below to explore and see what's possible!";
+        document.querySelector(".modal-badge").textContent = "NEW";
+        document.querySelector(".modal-badge").style.background = "#2ecc71";
+
+        showModal();
+      }
+
+      // Handle primary action
+      function handlePrimaryAction() {
+        alert(
+          "Primary action clicked! You can redirect to a page or perform any action here."
+        );
+        hideModal();
+      }
+
+      // Close modal when clicking outside
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
+          hideModal();
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+          hideModal();
+        }
+      });
+
+      // Auto-show modal on page load (if checkbox is checked)
+      window.addEventListener("load", function () {
+        if (autoShowCheckbox.checked) {
+          setTimeout(showModal, 1000); // Show after 1 second
+        }
+      });
+
+      // Prevent modal from showing on page load when checkbox is unchecked
+      autoShowCheckbox.addEventListener("change", function () {
+        if (!this.checked) {
+          // If modal is currently showing and auto-show is disabled, hide it
+          if (modal.classList.contains("active")) {
+            hideModal();
+          }
+        }
+      });
+    </script>
     <!-- whatsapp widget -->
     <script
       src="https://static.elfsight.com/platform/platform.js"
